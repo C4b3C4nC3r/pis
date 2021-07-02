@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OtherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',HomeController::class);
+Route::get('/x',[OtherController::class,'index']);
+Route::get('/x/c',[OtherController::class,'create']);
+Route::get('/x/{params?}',[OtherController::class,'show']);
+
+
+
+
+/*ruteo de mas parametros
+Route::get('x/{id}/{class?}', function ($id,$class=null) {
+    
+});*/
