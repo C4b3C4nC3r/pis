@@ -20,3 +20,10 @@ Route::get('/',HomeController::class);
 Route::resource('examples', OtherController::class)->parameters(['examples'=>'x'])->names('x');
 
 Route::view('nosotros', 'nosotros')->name('nosotros');//contenido estatico
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
