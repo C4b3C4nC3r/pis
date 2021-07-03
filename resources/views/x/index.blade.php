@@ -7,7 +7,7 @@
     <ul>
         @foreach ($x as $item)
         <li>
-            <a href="{{route('x.show',$item->id)}}">
+            <a href="{{route('x.show',$item)}}">
                 {{$item->name}}<!--MAPEO....-->
             </a>
         </li>            

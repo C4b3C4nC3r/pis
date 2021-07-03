@@ -19,35 +19,33 @@ class OtherController extends Controller
     {
         return view('x.create');   
     }
-    public function store(StoreX $request)
+    public function store(StoreX $request)//el request siempre lleva todo
     {   
-
-        $x= new x_example();
-        $x->name = $request->name;
-        $x->descripcion = $request->descripcion;
-        $x->categoria = $request->categoria;
-
-        $x->save();
         
-        return redirect()->route('x.show',$x);
+        $x = x_example::create($request->all());//method
+
+        return redirect()->route('x.show',$x);//response
     }
     
     public function show(x_example $x)
     {
         return view('x.show',compact('x'));   
     }
-    public function update(x_example $x)
+    public function edit(x_example $x)
     {
         return view('x.update',compact('x'));
     }
-    public function editado(StoreX $request,x_example $x)
+    public function update(StoreX $request,x_example $x)
     {
         
-        $x->name=$request->name;
-        $x->descripcion=$request->descripcion;
-        $x->categoria=$request->categoria;
-        $x->save();
+        $x->update($request->all());//method
         
         return redirect()->route('x.show',$x);
+    }
+    public function destroy(x_example $x)
+    {
+        $x->delete();
+        return redirect()->route('x.index');//response
+
     }
 }

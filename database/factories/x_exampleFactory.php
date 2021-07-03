@@ -22,9 +22,12 @@ class x_exampleFactory extends Factory
      */
     public function definition()
     {
+        $name=$this->faker->sentence();
+
         return [
             //
-            "name"=>$this->faker->sentence(),
+            "name"=>$name,
+            "slug"=>Str::slug($name,"-"),
             "descripcion"=>$this->faker->paragraph(),
             "categoria"=>$this->faker->randomElement(["manzanas","peras"])
         ];

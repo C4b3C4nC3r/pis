@@ -16,6 +16,7 @@ class CreateXExampleTable extends Migration
         Schema::create('x_examples', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug');
             $table->text('descripcion');
             $table->text('categoria');
             $table->timestamps();

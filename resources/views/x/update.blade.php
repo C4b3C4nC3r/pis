@@ -3,7 +3,7 @@
 @section("title","update")
 @section("content")
     <h1>UPDATE</h1>
-    <form autocomplete="off" action="{{route('x.editado',$x)}}" method="POST">
+    <form autocomplete="off" action="{{route('x.update',$x)}}" method="POST">
         @csrf
         @method('put')
         <hr><br>

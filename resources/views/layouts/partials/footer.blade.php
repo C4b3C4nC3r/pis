@@ -1,0 +1,5 @@
+<footer>
+
+    MIPRIMER FOOTER
+
+</footer>

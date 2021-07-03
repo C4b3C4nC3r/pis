@@ -15,19 +15,8 @@ use App\Http\Controllers\OtherController;
 |
 */
 
-//Route::get('/',HomeController::class);
-Route::get('/x',[OtherController::class,'index'])->name('x.index');
-Route::get('/x/c',[OtherController::class,'create'])->name('x.create');
-Route::post('/x',[OtherController::class,'store'])->name('x.store');//recibir info del formulario
-Route::get('/s/{x}',[OtherController::class,'show'])->name('x.show');
-Route::get('/u/{x}/update',[OtherController::class,'update'])->name('x.update');
-Route::put('/e/{x}',[OtherController::class,'editado'])->name('x.editado');//llravel recomiendo el put paar actualizar
+Route::get('/',HomeController::class);
 
+Route::resource('examples', OtherController::class)->parameters(['examples'=>'x'])->names('x');
 
-
-
-
-/*ruteo de mas parametros
-Route::get('x/{id}/{class?}', function ($id,$class=null) {
-    
-});*/
+Route::view('nosotros', 'nosotros')->name('nosotros');//contenido estatico
